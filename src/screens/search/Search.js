@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { reduxForm, Field } from "redux-form"
 
+import { styles } from "./styles"
+
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native"
 import {
   TextInput,
@@ -12,9 +14,13 @@ import {
   List
 } from "react-native-paper"
 
-import axios from "axios"
 import { api, key as APIKEY } from "../../utility/api"
+
+import { assets } from "../../utility/placeholderData"
+
 import { validate } from "../../utility/validator"
+
+import PhotoGrid from "../components/PhotoGrid"
 
 let Search = ({ handleSubmit, submitting }) => {
   const { container } = styles
@@ -24,55 +30,48 @@ let Search = ({ handleSubmit, submitting }) => {
       <Field
         name="search"
         component={renderField}
-        onBlur={handleSubmit(searchedValue)} // TODO: later should return message with alert aer you want to sure to cancel search
+        onBlur={handleSubmit(searchedValue)} // TODO: later should return message with alert : Are you want to sure to cancel search
       />
       <FAB
         onPress={handleSubmit(searchedValue)}
         icon="search"
+        color="#4f6d7a"
         label="search"
         disabled={submitting}
+        theme={{
+          colors: {
+            accent: "#ff9900",
+            text: "#4f6d7a"
+          }
+        }}
       />
+      <PhotoGrid items={assets} />
     </ScrollView>
   )
 }
 
-const searchedValue = keyword => console.log(assets)
+const searchedValue = keyword => alert(keyword.search)
 
 const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
   <View>
     <TextInput
       mode="outlined"
       onChangeText={onChange}
-      {...restInputProps}
-      label="search animal"
+      label="Search things"
       error={meta.error}
-      theme={{ colors: { primary: "#4f6d7a", text: "#4f6d7a" } }}
+      theme={{
+        colors: {
+          primary: "#4f6d7a",
+          background: "#ff9900"
+        }
+      }}
+      {...restInputProps}
     />
-    <HelperText type="error" visible={meta.touched && meta.error}>
+    <HelperText type="error" visible={meta.error}>
       {meta.error}
     </HelperText>
   </View>
 )
-
-// ********************* Styling *****************************************
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingBottom: 100,
-    backgroundColor: "#ccc",
-    padding: 30
-  },
-  input: {
-    marginHorizontal: 20
-  },
-  searchButton: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#4f6d7a",
-    fontSize: 30,
-    margin: 20
-  }
-})
 
 // ********************* export app && connect with redux(forms) *********************
 

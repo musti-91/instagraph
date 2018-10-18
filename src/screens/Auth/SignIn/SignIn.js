@@ -39,6 +39,7 @@ import {
   FAB,
   Switch
 } from "react-native-paper"
+
 class SignIn extends Component {
   static navigatorStyle = {
     navBarBackgroundColor: "#001211",
@@ -49,10 +50,6 @@ class SignIn extends Component {
     super(props)
     this.state = {
       modalVisibility: false,
-      email: "",
-      password: "",
-      emailError: null,
-      passwordError: null,
       securePassword: false
     }
   }
@@ -60,14 +57,7 @@ class SignIn extends Component {
   render() {
     const { container } = styles
     const { handleSubmit, submitting } = this.props
-    const {
-      email,
-      password,
-      emailError,
-      passwordError,
-      modalVisibility,
-      securePassword
-    } = this.state
+    const { modalVisibility, securePassword } = this.state
     return (
       <ImageBackground
         style={container}
@@ -81,11 +71,16 @@ class SignIn extends Component {
             resizeMode="contain"
           />
           <Field name="email" component={this._renderField} />
-          <Field name="password" component={this._renderField} />
+          <Field
+            type="password"
+            name="password"
+            component={this._renderField}
+          />
           <FAB
             onPress={handleSubmit(this.onTextFieldsSubmitted)}
             icon="forward"
             label="Sign in"
+            theme={{ colors: { accent: "#ff9900" } }}
           />
         </ScrollView>
       </ImageBackground>
@@ -101,37 +96,39 @@ class SignIn extends Component {
           mode="outlined"
           error={meta.error}
           underlineColor={Colors.blue500}
-          secureTextEntry={this.state.securePassword}
+          secureTextEntry={name === "password" && this.state.securePassword}
           theme={{
-            colors: { primary: Colors.amber100, text: Colors.amber100 }
+            colors: {
+              primary: "#ff9900",
+              background: "#4f6d7a",
+              placeholder: "#E3D9B3",
+              text: "#E3D9B3"
+            }
           }}
         />
-        <HelperText type="error" visible={meta.touched && meta.error}>
-          {meta.error}
-        </HelperText>
       </View>
+      <HelperText type="error" visible={meta.error}>
+        {meta.error}
+      </HelperText>
       {name === "password" && (
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Switch
             value={this.state.securePassword}
             onValueChange={() =>
-              this.setState(() => ({
-                securePassword: !this.state.securePassword
-              }))
+              this.setState({ securePassword: !this.state.securePassword })
             }
-            color="#001211"
+            color="#ff9900"
           />
-          <Text
-            style={{ marginLeft: 15, fontSize: 12, color: Colors.amber100 }}
-          >
+          <Text style={{ marginLeft: 15, fontSize: 12, color: "#ff9900" }}>
             Show password
           </Text>
         </View>
       )}
     </View>
   )
-
   onTextFieldsSubmitted = values => alert(JSON.stringify(values))
+  onSecurePasswordPressed = () =>
+    this.setState({ securePassword: !this.state.securePassword })
 }
 // ************ render diffrent styles depends in system *************
 if (Platform.OS === "android") {
@@ -147,7 +144,6 @@ export default connect(
 )(
   reduxForm({
     form: "signin",
-    destroyOnUnmount: true,
-    validate
+    destroyOnUnmount: true
   })(SignIn)
 )

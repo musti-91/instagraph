@@ -1,36 +1,24 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { View, SafeAreaView, ActivityIndicator } from "react-native"
-import {
-  ProgressBar,
-  Colors,
-  RadioButton,
-  Card,
-  Surface,
-  Switch,
-  Text,
-  Title
-} from "react-native-paper"
-
-import Loader from "../../hoc/Loader"
-import { styles } from "./styles"
+import { View, SafeAreaView, ActivityIndicator, StyleSheet } from "react-native"
+import { Colors, Title, FAB } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome5"
 
 class Profile extends Component {
-  state = {
-    value: "",
-    isSwitched: false
-  }
-
   render() {
-    const { value, isSwitched } = this.state
     const { navigator } = this.props
     const { container } = styles
     return (
       <SafeAreaView style={container}>
         <Title>Profile</Title>
-        <Title onPress={() => this._backToHomeScreen(navigator)}>
+        <FAB
+          style={{ alignSelf: "center", padding: 20 }}
+          icon={() => <Icon name="sign-out-alt" size={20} color="#4f6d7a" />}
+          onPress={() => this._backToHomeScreen(navigator)}
+          theme={{ colors: { accent: "#FF9900" } }}
+        >
           Sign out
-        </Title>
+        </FAB>
       </SafeAreaView>
     )
   }
@@ -43,4 +31,14 @@ class Profile extends Component {
     })
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#4f6d7a"
+  }
+})
+
 export default Profile

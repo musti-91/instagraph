@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, Button } from "react-native"
-
-import { styles } from "./styles"
+import { View, Text, Button, StyleSheet } from "react-native"
 
 class SignUp extends Component {
   render() {
@@ -13,4 +11,13 @@ class SignUp extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+})
+
 export default SignUp

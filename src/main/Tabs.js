@@ -1,15 +1,27 @@
 import { Navigation } from "react-native-navigation"
-import Icon from "react-native-vector-icons/Ionicons"
+import Icon from "react-native-vector-icons/FontAwesome5"
 
 export const startTabs = () => {
   Promise.all([
-    Icon.getImageSource("ios-person", 30),
-    Icon.getImageSource("ios-alert", 30),
-    Icon.getImageSource("ios-stats", 30),
-    Icon.getImageSource("ios-search", 30)
+    Icon.getImageSource("user", 30),
+    Icon.getImageSource("flag", 30),
+    Icon.getImageSource("chart-line", 30),
+    Icon.getImageSource("search", 30)
   ]).then(sources => {
     Navigation.startTabBasedApp({
       tabs: [
+        {
+          label: "Search",
+          screen: "Search",
+          title: "Search",
+          icon: sources[3],
+          // titleImage: require("../assets/lion.png"),
+          navigatorStyle: {
+            statusBarHidden: true,
+            navBarHidden: true
+          },
+          navigatorButtons: {}
+        },
         {
           label: "Activity",
           screen: "Activity",
@@ -37,18 +49,6 @@ export const startTabs = () => {
           screen: "Profile",
           title: "Profile",
           icon: sources[0],
-          // titleImage: require("../assets/lion.png"),
-          navigatorStyle: {
-            statusBarHidden: true,
-            navBarHidden: true
-          },
-          navigatorButtons: {}
-        },
-        {
-          label: "Search",
-          screen: "Search",
-          title: "Search",
-          icon: sources[3],
           // titleImage: require("../assets/lion.png"),
           navigatorStyle: {
             statusBarHidden: true,

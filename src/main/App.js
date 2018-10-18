@@ -27,11 +27,12 @@ Navigation.startSingleScreenApp({
       navBarSubtitleColor: "#ddd", // subtitle color
       navBarSubtitleFontSize: 30, // subtitle font size
       orientation: "portrait", // Sets a specific orientation to a modal and all screens pushed to it. Default: 'auto'. Supported values: 'auto', 'landscape', 'portrait'
-      navBarHeight: 40,
-      statusBarHidden: true,
+      navBarHeight: 20, // android  will show
       navBarHidden: true,
       navBarNoBorder: true,
-      modalPresentationStyle: "fullScreen"
+      modalPresentationStyle: "fullScreen",
+      // ios only
+      statusBarHideWithNavBar: true
     }
   }
 })

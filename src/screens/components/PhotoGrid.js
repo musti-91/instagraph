@@ -6,40 +6,124 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  SafeAreaView
+  SafeAreaView,
+  TouchableOpacity,
+  Animated
 } from "react-native"
 
-import { ListItem } from "react-native-paper"
+import { ListItem, List, HelperText, Chip } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome5"
 
 class PhotoGrid extends Component {
+  state = {
+    fadeIn: new Animated.Value(0)
+  }
+
+  componentDidMount() {
+    const { fadeIn } = this.state
+    Animated.timing(fadeIn, { toValue: 1, duration: 2000 })
+  }
+
   render() {
+    const { grid, grid_item, grid_image } = styles
+    const {
+      items,
+      error,
+      onPress,
+      leftIconName,
+      isRightIcon,
+      isLeftIcon,
+      rightIconName
+    } = this.props
+
+    let { fadeIn } = this.state
+
     return (
-      <SafeAreaView>
-        <ScrollView>
-          <Image
-            source={require("../../assets/lion.png")}
-            style={{ width: 300, height: 300 }}
-          />
-          <Image
-            source={require("../../assets/lion.png")}
-            style={{ width: 300, height: 300 }}
-          />
-          <Image
-            source={require("../../assets/lion.png")}
-            style={{ width: 300, height: 300 }}
-          />
-          <Image
-            source={require("../../assets/lion.png")}
-            style={{ width: 300, height: 300 }}
-          />
-          <Image
-            source={require("../../assets/lion.png")}
-            style={{ width: 300, height: 300 }}
-          />
-        </ScrollView>
+      <SafeAreaView style={grid}>
+        {error && this._renderError(error)}
+        {items.length > 0 &&
+          items.map((item, index) => (
+            <TouchableOpacity
+              style={grid_item}
+              onPress={onPress}
+              key={"asset-" + index}
+            >
+              <Text style={{ alignSelf: "center" }}>{item.displayName}</Text>
+              <Image
+                source={{ uri: item.thumbnail.url }}
+                style={grid_image}
+                resizeMode="contain"
+              />
+              <Chip
+                mode="outlined"
+                icon={() => <Icon name="hashtag" color="#ff9900" />}
+                onPress={() => alert(item.displayName)}
+              >
+                {item.description}
+              </Chip>
+            </TouchableOpacity>
+          ))}
       </SafeAreaView>
     )
   }
+
+  _renderError = error => () => (
+    <HelperText type="error" visible={error ? true : false}>
+      {error ? error : null}
+    </HelperText>
+  )
+
+  _renderList = () => {
+    return
+  }
+}
+
+const styles = StyleSheet.create({
+  grid: {
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "space-between",
+    width: "100%",
+    alignItems: "flex-start",
+    paddingHorizontal: 4,
+    marginTop: 30,
+    flexWrap: "wrap"
+  },
+  grid_item: {
+    width: "49%",
+    height: 180,
+    marginBottom: 20,
+    textAlign: "center",
+    lineHeight: 100,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ff9900"
+  },
+  grid_image: {
+    width: 180,
+    height: 120,
+    borderRadius: 20,
+    alignSelf: "center"
+  }
+})
+
+PhotoGrid.propTypes = {
+  items: PropTypes.array,
+  error: PropTypes.object,
+  onPress: PropTypes.func,
+  isLeftIcon: PropTypes.bool,
+  isRightIcon: PropTypes.bool,
+  leftIconName: PropTypes.string,
+  rightIconName: PropTypes.string
+}
+
+PhotoGrid.defaultProps = {
+  onPress: () => ({}),
+  error: {},
+  items: [],
+  isLeftIcon: true,
+  isRightIcon: true,
+  leftIconName: "#",
+  rightIconName: "#"
 }
 
 export default PhotoGrid
