@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ActivityIndicator,
   TouchableOpacity,
+  TouchableHighlight,
   Text,
   View,
   Animated,
@@ -51,34 +52,26 @@ class Home extends Component {
     } = styles
     let { circle_A, circle_B, circle_C } = this.state
     return (
-      <SafeAreaView style={container}>
-        <Animated.View style={{ opacity: circle_A }}>
-          <TouchableOpacity onPress={() => this._startTabs()} style={circle}>
-            <Icon name="home" size={50} color="#00364A" />
-            <Text style={circle_text}>HOME</Text>
-          </TouchableOpacity>
-        </Animated.View>
-        <View style={{ flexDirection: "row" }}>
-          <Divider />
-          <Divider />
-          <Animated.View style={{ opacity: circle_B }}>
-            <TouchableOpacity
-              onPress={this.navigate("SignUp")}
-              style={[circle, { width: 150, height: 150, top: 500, left: 50 }]}
-            >
-              <Icon name="users" size={30} color="#00364A" />
-              <Text style={[circle_text]}>Sign up</Text>
-            </TouchableOpacity>
+      <SafeAreaView style={ container }>
+        <TouchableHighlight onPress={ () => this._startTabs() } style={ circle }>
+          <Animated.View style={ { opacity: circle_A } }>
+            <Icon name="angrycreative" size={ 50 } color="#00364A" />
+            <Text style={ circle_text }>HOME</Text>
           </Animated.View>
-          <Animated.View style={{ opacity: circle_C }}>
-            <TouchableOpacity
-              onPress={this.navigate("SignIn")}
-              style={[circle, circle_small]}
-            >
-              <Icon name="at" size={20} color="#00364A" />
-              <Text style={[circle_text, circle_small_text]}>Sign in</Text>
-            </TouchableOpacity>
-          </Animated.View>
+        </TouchableHighlight>
+        <View style={ { flexDirection: "row" } }>
+          <TouchableHighlight onPress={ this.navigate("SignUp") } style={ [circle, { width: 150, height: 150, top: 500, left: 50 }] } >
+            <Animated.View style={ { opacity: circle_B } }>
+              <Icon name="plus" size={ 30 } color="#00364A" />
+              <Text style={ [circle_text] }>Sign up</Text>
+            </Animated.View>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={ this.navigate("SignIn") } style={ [circle, circle_small] } >
+            <Animated.View style={ { opacity: circle_C } }>
+              <Icon name="registered" size={ 20 } color="#00364A" />
+              <Text style={ [circle_text, circle_small_text] }>Sign in</Text>
+            </Animated.View>
+          </TouchableHighlight>
         </View>
       </SafeAreaView>
     )

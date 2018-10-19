@@ -35,13 +35,13 @@ let Search = ({ handleSubmit, submitting }) => {
       <FAB
         onPress={handleSubmit(searchedValue)}
         icon="search"
-        color="#4f6d7a"
+        color="#00364A"
         label="search"
         disabled={submitting}
         theme={{
           colors: {
-            accent: "#ff9900",
-            text: "#4f6d7a"
+            accent: "#C57700",
+            text: "#00364A"
           }
         }}
       />
@@ -61,8 +61,8 @@ const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
       error={meta.error}
       theme={{
         colors: {
-          primary: "#4f6d7a",
-          background: "#ff9900"
+          primary: "#00364A",
+          background: "#C57700"
         }
       }}
       {...restInputProps}

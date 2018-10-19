@@ -13,9 +13,9 @@ class Profile extends Component {
         <Title>Profile</Title>
         <FAB
           style={{ alignSelf: "center", padding: 20 }}
-          icon={() => <Icon name="sign-out-alt" size={20} color="#4f6d7a" />}
+          icon={() => <Icon name="sign-out-alt" size={20} color="#00364A" />}
           onPress={() => this._backToHomeScreen(navigator)}
-          theme={{ colors: { accent: "#FF9900" } }}
+          theme={{ colors: { accent: "#C57700" } }}
         >
           Sign out
         </FAB>
@@ -27,7 +27,7 @@ class Profile extends Component {
     navigator.resetTo({
       screen: "Home",
       animated: true,
-      animationType: "slide-down"
+      animationType: "fade"
     })
   }
 }
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#4f6d7a"
+    backgroundColor: "#00364A"
   }
 })
 

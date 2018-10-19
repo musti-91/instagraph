@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4f6d7a"
+    backgroundColor: "#00364A"
   },
   circle: {
     borderRadius: 100,
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "#ff9900",
+    backgroundColor: "#C57700",
     shadowOffset: { width: 1, height: 1 },
     shadowColor: "#00364A",
     shadowOpacity: 0.5

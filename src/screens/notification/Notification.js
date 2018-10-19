@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { View, Text, StyleSheet, SafeAreaView } from "react-native"
 
+import Form from "../components/Form"
 import { Headline } from "react-native-paper"
 class Notification extends Component {
   render() {
@@ -12,6 +13,10 @@ class Notification extends Component {
       </SafeAreaView>
     )
   }
+
+  onFormSubmit = values => {
+    alert(JSON.stringify(values))
+  }
 }
 
 const styles = StyleSheet.create({
@@ -20,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: "#4f6d7a"
+    backgroundColor: "#00364A"
   }
 })
 export default Notification

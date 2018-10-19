@@ -1,12 +1,11 @@
 import { Navigation } from "react-native-navigation"
 import Icon from "react-native-vector-icons/FontAwesome5"
-
 export const startTabs = () => {
   Promise.all([
-    Icon.getImageSource("user", 30),
-    Icon.getImageSource("flag", 30),
-    Icon.getImageSource("chart-line", 30),
-    Icon.getImageSource("search", 30)
+    Icon.getImageSource("user", 20),
+    Icon.getImageSource("flag", 20),
+    Icon.getImageSource("chart-line", 20),
+    Icon.getImageSource("search", 20)
   ]).then(sources => {
     Navigation.startTabBasedApp({
       tabs: [
@@ -28,8 +27,7 @@ export const startTabs = () => {
           icon: sources[2],
           navigatorStyle: {
             statusBarHidden: true,
-            navBarHidden: true,
-            navBarTextColor: "#112"
+            navBarHidden: true
           }
         },
         {
@@ -37,7 +35,6 @@ export const startTabs = () => {
           screen: "Notification",
           icon: sources[1],
           title: "Notification",
-          // titleImage: require("../assets/lion.png"),
           navigatorStyle: {
             statusBarHidden: true,
             navBarHidden: true
@@ -49,7 +46,6 @@ export const startTabs = () => {
           screen: "Profile",
           title: "Profile",
           icon: sources[0],
-          // titleImage: require("../assets/lion.png"),
           navigatorStyle: {
             statusBarHidden: true,
             navBarHidden: true
@@ -57,11 +53,17 @@ export const startTabs = () => {
           navigatorButtons: {}
         }
       ],
+      // GENERAL COLOR: vscode #00364A, #C57700, #DC4475, #A10605, #00FDB3
       tabsStyle: {
-        tabBarButtonColor: "#ccc", // optional, change the color of the tab icons and text (also unselected). On Android, add this to appStyle
-        tabBarSelectedButtonColor: "#ff9900", // optional, change the color of the selected tab icon and text (only selected). On Android, add this to appStyle
-        tabBarBackgroundColor: "#4f6d7a", // optional, change the background color of the tab bar
-        initialTabIndex: 0
+        tabBarButtonColor: "#00FDB3", // optional, change the color of the tab icons and text (also unselected). On Android, add this to appStyle
+        tabBarLabelColor: "#00FDB3",
+        tabBarSelectedButtonColor: "#C57700", // optional, change the color of the selected tab icon and text (only selected). On Android, add this to appStyle
+        tabBarSelectedLabelColor: "#C57700",
+        tabBarBackgroundColor: "#00364A", // optional, change the background color of the tab bar
+        initialTabIndex: 0,
+        tabBarTranslucent: true,
+        forceTitlesDisplay: false,
+        tabBarHideShadow: true
       },
       drawer: {
         // optional, add this if you want a side menu drawer in your app
@@ -95,3 +97,15 @@ export const startTabs = () => {
     })
   })
 }
+// tabsStyle: {
+//   tabBarHidden: false, // make the tab bar hidden
+//   tabBarButtonColor: '#ffff00', // change the color of the tab icons and text (also unselected)
+//   tabBarSelectedButtonColor: '#ff9900', // change the color of the selected tab icon and text (only selected)
+//   tabBarBackgroundColor: '#551A8B', // change the background color of the tab bar
+//   tabBarTranslucent: false, // change the translucent of the tab bar to false
+//   tabBarTextFontFamily: 'Avenir-Medium', //change the tab font family
+//   tabBarLabelColor: '#ffb700', // iOS only. change the color of tab text
+//   tabBarSelectedLabelColor: 'red', // iOS only. change the color of the selected tab text
+//   forceTitlesDisplay: true, // Android only. If true - Show all bottom tab labels. If false - only the selected tab's label is visible.
+//   tabBarHideShadow: true // Remove default tab bar top shadow (hairline)
+// }

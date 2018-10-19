@@ -16,8 +16,8 @@ Navigation.startSingleScreenApp({
     animationTypes: "slide-down",
     navigatorStyle: {
       navBarTranslucent: true,
-      navBarBackgroundColor: "#4f6d7a",
-      statusBarColor: "#4f6d7a",
+      navBarBackgroundColor: "#00364A",
+      statusBarColor: "#00364A",
       navBarTextColor: "#fff", // change the text color of the title (remembered across pushes)
       navBarTextFontSize: 18, // change the font size of the title
       // navBarTextFontFamily: "Fira Code", // xcode does not see any font

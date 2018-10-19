@@ -11,53 +11,32 @@ import { validate } from "../../../utility/validator"
 
 import SplashScreen from "react-native-splash-screen"
 
-import { styles } from "./styles"
 import {
-  SafeAreaView,
-  Text,
   ImageBackground,
   Image,
   ScrollView,
-  View,
-  TouchableOpacity,
-  Platform
+  Platform,
+  StyleSheet
 } from "react-native"
-import {
-  Card,
-  Title,
-  TextInput,
-  IconButton,
-  DarkTheme,
-  Colors,
-  Divider,
-  Dialog,
-  ScrollArea,
-  Modal,
-  Portal,
-  Checkbox,
-  HelperText,
-  FAB,
-  Switch
-} from "react-native-paper"
+
+import Form from "../../components/Form"
 
 class SignIn extends Component {
   static navigatorStyle = {
-    navBarBackgroundColor: "#001211",
-    statusBarColor: "#001211",
-    navBarButtonColor: "#dcc"
+    navBarBackgroundColor: "#010808",
+    statusBarColor: "#010808",
+    navBarButtonColor: "#00FDB3"
   }
+
   constructor(props) {
     super(props)
     this.state = {
-      modalVisibility: false,
-      securePassword: false
+      modalVisibility: false
     }
   }
 
   render() {
     const { container } = styles
-    const { handleSubmit, submitting } = this.props
-    const { modalVisibility, securePassword } = this.state
     return (
       <ImageBackground
         style={container}
@@ -70,80 +49,26 @@ class SignIn extends Component {
             resizeMethod="auto"
             resizeMode="contain"
           />
-          <Field name="email" component={this._renderField} />
-          <Field
-            type="password"
-            name="password"
-            component={this._renderField}
-          />
-          <FAB
-            onPress={handleSubmit(this.onTextFieldsSubmitted)}
-            icon="forward"
-            label="Sign in"
-            theme={{ colors: { accent: "#ff9900" } }}
-          />
+          <Form onFormSubmit={this.onFormSubmit} />
         </ScrollView>
       </ImageBackground>
     )
   }
 
-  _renderField = ({ input: { onChange, name } }, meta, label) => (
-    <View style={{ marginBottom: 15 }}>
-      <View>
-        <TextInput
-          onChangeText={onChange}
-          label={name}
-          mode="outlined"
-          error={meta.error}
-          underlineColor={Colors.blue500}
-          secureTextEntry={name === "password" && this.state.securePassword}
-          theme={{
-            colors: {
-              primary: "#ff9900",
-              background: "#4f6d7a",
-              placeholder: "#E3D9B3",
-              text: "#E3D9B3"
-            }
-          }}
-        />
-      </View>
-      <HelperText type="error" visible={meta.error}>
-        {meta.error}
-      </HelperText>
-      {name === "password" && (
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Switch
-            value={this.state.securePassword}
-            onValueChange={() =>
-              this.setState({ securePassword: !this.state.securePassword })
-            }
-            color="#ff9900"
-          />
-          <Text style={{ marginLeft: 15, fontSize: 12, color: "#ff9900" }}>
-            Show password
-          </Text>
-        </View>
-      )}
-    </View>
-  )
-  onTextFieldsSubmitted = values => alert(JSON.stringify(values))
-  onSecurePasswordPressed = () =>
-    this.setState({ securePassword: !this.state.securePassword })
-}
-// ************ render diffrent styles depends in system *************
-if (Platform.OS === "android") {
-  SignIn.navigatorStyle = {
-    navBarBackgroundColor: "#001211",
-    navBarButtonColor: "#dcc"
-  }
+  onFormSubmit = values => console.log(values)
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "teal",
+    padding: 10,
+    paddingTop: 50
+  }
+})
+
+// ************ render diffrent styles depends in system *************
 export default connect(
   null,
   null
-)(
-  reduxForm({
-    form: "signin",
-    destroyOnUnmount: true
-  })(SignIn)
-)
+)(SignIn)

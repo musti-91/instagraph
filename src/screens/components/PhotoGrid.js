@@ -48,7 +48,9 @@ class PhotoGrid extends Component {
               onPress={onPress}
               key={"asset-" + index}
             >
-              <Text style={{ alignSelf: "center" }}>{item.displayName}</Text>
+              <Text style={{ alignSelf: "center", color: "#00364A" }}>
+                {item.displayName}
+              </Text>
               <Image
                 source={{ uri: item.thumbnail.url }}
                 style={grid_image}
@@ -56,8 +58,9 @@ class PhotoGrid extends Component {
               />
               <Chip
                 mode="outlined"
-                icon={() => <Icon name="hashtag" color="#ff9900" />}
+                icon={() => <Icon name="hashtag" color="#c57700" />}
                 onPress={() => alert(item.displayName)}
+                theme={{ colors: { surface: "#CCC", text: "#c57700" } }}
               >
                 {item.description}
               </Chip>
