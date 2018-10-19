@@ -41,7 +41,7 @@ const _renderField = ({
       theme={{
         colors: {
           primary: "#ff9900",
-          background: "#4f6d7a",
+          background: name === "password" ? "#1A5852" : "#144445",
           placeholder: "#E3D9B3",
           text: "#E3D9B3"
         }

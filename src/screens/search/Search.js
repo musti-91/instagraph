@@ -1,8 +1,10 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { reduxForm, Field } from "redux-form"
+import { connect } from "react-redux"
 
 import { styles } from "./styles"
+import { fetchAssets } from "../../redux/searchReducer"
 
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native"
 import {
@@ -16,24 +18,26 @@ import {
 
 import { api, key as APIKEY } from "../../utility/api"
 
-import { assets } from "../../utility/placeholderData"
-
 import { validate } from "../../utility/validator"
 
 import PhotoGrid from "../components/PhotoGrid"
 
-let Search = ({ handleSubmit, submitting }) => {
+let Search = ({
+  handleSubmit,
+  submitting,
+  fetchAssets,
+  fetchAssetsError,
+  fetching,
+  assets,
+  asset
+}) => {
   const { container } = styles
   return (
     <ScrollView style={styles.container}>
       <Title>Using redux form</Title>
-      <Field
-        name="search"
-        component={renderField}
-        onBlur={handleSubmit(searchedValue)} // TODO: later should return message with alert : Are you want to sure to cancel search
-      />
+      <Field name="search" component={renderField} />
       <FAB
-        onPress={handleSubmit(searchedValue)}
+        onPress={handleSubmit(searchedValue(fetchAssets))}
         icon="search"
         color="#00364A"
         label="search"
@@ -45,12 +49,12 @@ let Search = ({ handleSubmit, submitting }) => {
           }
         }}
       />
-      <PhotoGrid items={assets} />
+      <PhotoGrid items={assets} loading={fetching} />
     </ScrollView>
   )
 }
 
-const searchedValue = keyword => alert(keyword.search)
+const searchedValue = fetchAssets => keyword => fetchAssets(keyword.search)
 
 const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
   <View>
@@ -62,7 +66,7 @@ const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
       theme={{
         colors: {
           primary: "#00364A",
-          background: "#C57700"
+          background: "#ccc"
         }
       }}
       {...restInputProps}
@@ -74,9 +78,23 @@ const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
 )
 
 // ********************* export app && connect with redux(forms) *********************
+const mapStateToProps = state => ({
+  assets: state.ASSETS.assets,
+  fetching: state.ASSETS.fetching,
+  fetchAssetsError: state.ASSETS.fetchAssetsError
+})
 
-export default reduxForm({
-  form: "search",
-  destroyOnUnmount: true,
-  validate
-})(Search)
+const mapDispatchToProps = dispatchEvent => ({
+  fetchAssets: value => dispatchEvent(fetchAssets(value))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
+  reduxForm({
+    form: "search",
+    destroyOnUnmount: true,
+    validate
+  })(Search)
+)

@@ -8,7 +8,8 @@ import {
   Image,
   SafeAreaView,
   TouchableOpacity,
-  Animated
+  Animated,
+  ActivityIndicator
 } from "react-native"
 
 import { ListItem, List, HelperText, Chip } from "react-native-paper"
@@ -25,7 +26,7 @@ class PhotoGrid extends Component {
   }
 
   render() {
-    const { grid, grid_item, grid_image } = styles
+    const { grid, grid_item, grid_image, loadingPosition } = styles
     const {
       items,
       error,
@@ -33,15 +34,22 @@ class PhotoGrid extends Component {
       leftIconName,
       isRightIcon,
       isLeftIcon,
-      rightIconName
+      rightIconName,
+      loading
     } = this.props
 
     let { fadeIn } = this.state
 
     return (
-      <SafeAreaView style={grid}>
+      <SafeAreaView style={loading ? loadingPosition : grid}>
         {error && this._renderError(error)}
-        {items.length > 0 &&
+        {loading ? (
+          <ActivityIndicator
+            size="large"
+            color="#00364A"
+            style={{ marginTop: 200 }}
+          />
+        ) : (
           items.map((item, index) => (
             <TouchableOpacity
               style={grid_item}
@@ -65,7 +73,8 @@ class PhotoGrid extends Component {
                 {item.description}
               </Chip>
             </TouchableOpacity>
-          ))}
+          ))
+        )}
       </SafeAreaView>
     )
   }
@@ -82,6 +91,11 @@ class PhotoGrid extends Component {
 }
 
 const styles = StyleSheet.create({
+  loadingPosition: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   grid: {
     flexDirection: "row",
     flex: 1,
@@ -110,13 +124,14 @@ const styles = StyleSheet.create({
 })
 
 PhotoGrid.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.array.isRequired,
   error: PropTypes.object,
   onPress: PropTypes.func,
   isLeftIcon: PropTypes.bool,
   isRightIcon: PropTypes.bool,
   leftIconName: PropTypes.string,
-  rightIconName: PropTypes.string
+  rightIconName: PropTypes.string,
+  loading: PropTypes.bool.isRequired
 }
 
 PhotoGrid.defaultProps = {

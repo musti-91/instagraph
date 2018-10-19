@@ -106,8 +106,8 @@ Home.propTypes = {
 
 export default connect(
   state => ({
-    launchApp: state.nav.launchApp,
-    pages: state.nav.pages
+    launchApp: state.NAV.launchApp,
+    pages: state.NAV.pages
   }),
   dispatch => ({
     startApp: () => dispatch(startApp()),
