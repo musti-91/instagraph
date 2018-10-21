@@ -5,10 +5,22 @@ export const startTabs = () => {
     Icon.getImageSource("user", 20),
     Icon.getImageSource("flag", 20),
     Icon.getImageSource("chart-line", 20),
-    Icon.getImageSource("search", 20)
+    Icon.getImageSource("search", 20),
+    Icon.getImageSource("camera", 20)
   ]).then(sources => {
     Navigation.startTabBasedApp({
       tabs: [
+        {
+          label: "Camera",
+          screen: "Camera",
+          icon: sources[4],
+          // titleImage: require("../assets/lion.png"),
+          navigatorStyle: {
+            statusBarHidden: true,
+            navBarHidden: true
+          },
+          navigatorButtons: {}
+        },
         {
           label: "Search",
           screen: "Search",

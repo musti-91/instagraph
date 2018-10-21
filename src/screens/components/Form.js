@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Platform } from "react-native"
 
 import { Field, reduxForm } from "redux-form"
 import { validate } from "../../utility/validator"
@@ -41,7 +41,7 @@ const _renderField = ({
       theme={{
         colors: {
           primary: "#ff9900",
-          background: name === "password" ? "#1A5852" : "#144445",
+          background: placeholderColor(name),
           placeholder: "#E3D9B3",
           text: "#E3D9B3"
         }
@@ -52,7 +52,15 @@ const _renderField = ({
     </HelperText>
   </View>
 )
-
+const placeholderColor = name => {
+  if (Platform.OS == "ios") {
+    if (name === "password") return "#1A5852"
+    else return "#144445"
+  } else {
+    if (name === "password") return "#006D61"
+    else return "#005A52"
+  }
+}
 /** proptypes */
 Form.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
