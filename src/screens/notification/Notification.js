@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, SafeAreaView } from "react-native"
 
 import Form from "../components/Form"
 import { Headline } from "react-native-paper"
+
+import { customColors as colors } from "../../assets/colors"
 class Notification extends Component {
   render() {
     const { container } = styles
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: "#00364A"
+    backgroundColor: colors.dark
   }
 })
 export default Notification

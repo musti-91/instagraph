@@ -1,5 +1,8 @@
 import { Navigation } from "react-native-navigation"
 import Icon from "react-native-vector-icons/FontAwesome5"
+
+import { customColors as colors } from "../assets/colors"
+
 export const startTabs = () => {
   Promise.all([
     Icon.getImageSource("user", 20),
@@ -11,22 +14,10 @@ export const startTabs = () => {
     Navigation.startTabBasedApp({
       tabs: [
         {
-          label: "Camera",
-          screen: "Camera",
-          icon: sources[4],
-          // titleImage: require("../assets/lion.png"),
-          navigatorStyle: {
-            statusBarHidden: true,
-            navBarHidden: true
-          },
-          navigatorButtons: {}
-        },
-        {
           label: "Search",
           screen: "Search",
           title: "Search",
           icon: sources[3],
-          // titleImage: require("../assets/lion.png"),
           navigatorStyle: {
             statusBarHidden: true,
             navBarHidden: true
@@ -65,17 +56,19 @@ export const startTabs = () => {
           navigatorButtons: {}
         }
       ],
-      // GENERAL COLOR: vscode #00364A, #C57700, #DC4475, #A10605, #00FDB3
       tabsStyle: {
-        tabBarButtonColor: "#00FDB3", // optional, change the color of the tab icons and text (also unselected). On Android, add this to appStyle
-        tabBarLabelColor: "#00FDB3",
-        tabBarSelectedButtonColor: "#C57700", // optional, change the color of the selected tab icon and text (only selected). On Android, add this to appStyle
-        tabBarSelectedLabelColor: "#C57700",
+        tabBarButtonColor: colors.green, // optional, change the color of the tab icons and text (also unselected). On Android, add this to appStyle
+        tabBarLabelColor: colors.green,
+        tabBarSelectedButtonColor: colors.orange, // optional, change the color of the selected tab icon and text (only selected). On Android, add this to appStyle
+        tabBarSelectedLabelColor: colors.orange,
         tabBarBackgroundColor: "#00364A", // optional, change the background color of the tab bar
         initialTabIndex: 0,
         tabBarTranslucent: true,
         forceTitlesDisplay: false,
         tabBarHideShadow: true
+      },
+      appStyle: {
+        orientation: "auto"
       },
       drawer: {
         // optional, add this if you want a side menu drawer in your app

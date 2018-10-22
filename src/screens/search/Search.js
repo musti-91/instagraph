@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 
 import { styles } from "./styles"
 import { fetchAssets } from "../../redux/searchReducer"
+import { customColors as colors } from "../../assets/colors"
 
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native"
 import {
@@ -44,8 +45,8 @@ let Search = ({
         disabled={submitting}
         theme={{
           colors: {
-            accent: "#C57700",
-            text: "#00364A"
+            accent: colors.orange,
+            text: colors.dark
           }
         }}
       />
@@ -65,7 +66,7 @@ const renderField = ({ input: { onChange, ...restInputProps }, meta }) => (
       error={meta.error}
       theme={{
         colors: {
-          primary: "#00364A",
+          primary: colors.dark,
           background: "#ccc"
         }
       }}

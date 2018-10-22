@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native"
+import { customColors as colors } from "../../assets/colors"
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -14,15 +16,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "#C57700",
+    backgroundColor: colors.orange,
     shadowOffset: { width: 1, height: 1 },
-    shadowColor: "#00364A",
+    shadowColor: colors.dark,
     shadowOpacity: 0.5
   },
   circle_text: {
     marginLeft: 20,
     fontSize: 20,
-    color: "#00364A"
+    color: colors.dark
   },
   circle_small: {
     width: 110,

@@ -21,11 +21,15 @@ import {
 
 import Form from "../../components/Form"
 
+import { customColors as colors } from "../../../assets/colors"
+
+import { images } from "../../../assets/images"
+
 class SignIn extends Component {
   static navigatorStyle = {
-    navBarBackgroundColor: "#010808",
-    statusBarColor: "#010808",
-    navBarButtonColor: "#00FDB3"
+    navBarBackgroundColor: colors.navBarColor,
+    statusBarColor: colors.navBarColor,
+    navBarButtonColor: colors.green
   }
 
   constructor(props) {
@@ -41,11 +45,11 @@ class SignIn extends Component {
       <ImageBackground
         style={container}
         resizeMode="cover"
-        source={require("../../../assets/backgroundImage.png")}
+        source={images.background}
       >
         <ScrollView>
           <Image
-            source={require("../../../assets/lion.png")}
+            source={images.logo}
             resizeMethod="auto"
             resizeMode="contain"
           />
@@ -61,7 +65,7 @@ class SignIn extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "teal",
+    backgroundColor: colors.dark,
     padding: 10,
     paddingTop: 50
   }

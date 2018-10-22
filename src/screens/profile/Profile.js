@@ -4,6 +4,7 @@ import { View, SafeAreaView, ActivityIndicator, StyleSheet } from "react-native"
 import { Colors, Title, FAB } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome5"
 
+import { customColors as colors } from "../../assets/colors"
 class Profile extends Component {
   render() {
     const { navigator } = this.props
@@ -15,7 +16,7 @@ class Profile extends Component {
           style={{ alignSelf: "center", padding: 20 }}
           icon={() => <Icon name="sign-out-alt" size={20} color="#00364A" />}
           onPress={() => this._backToHomeScreen(navigator)}
-          theme={{ colors: { accent: "#C57700" } }}
+          theme={{ colors: { accent: colors.orange } }}
         >
           Sign out
         </FAB>
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#00364A"
+    backgroundColor: colors.dark
   }
 })
 

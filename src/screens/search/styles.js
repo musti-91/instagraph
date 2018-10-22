@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native"
+import { customColors as colors } from "../../assets/colors"
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -13,7 +15,7 @@ export const styles = StyleSheet.create({
   searchButton: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#4f6d7a",
+    backgroundColor: colors.dark,
     fontSize: 30,
     margin: 20
   }

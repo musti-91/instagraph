@@ -15,6 +15,8 @@ import {
 import { ListItem, List, HelperText, Chip } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome5"
 
+import { customColors as colors } from "../../assets/colors"
+
 class PhotoGrid extends Component {
   state = {
     fadeIn: new Animated.Value(0)
@@ -56,7 +58,7 @@ class PhotoGrid extends Component {
               onPress={onPress}
               key={"asset-" + index}
             >
-              <Text style={{ alignSelf: "center", color: "#00364A" }}>
+              <Text style={{ alignSelf: "center", color: colors.dark }}>
                 {item.displayName}
               </Text>
               <Image
@@ -66,9 +68,9 @@ class PhotoGrid extends Component {
               />
               <Chip
                 mode="outlined"
-                icon={() => <Icon name="hashtag" color="#c57700" />}
+                icon={() => <Icon name="hashtag" color={colors.orange} />}
                 onPress={() => alert(item.displayName)}
-                theme={{ colors: { surface: "#CCC", text: "#c57700" } }}
+                theme={{ colors: { surface: "#CCC", text: colors.orange } }}
               >
                 {item.description}
               </Chip>
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 100,
     borderBottomWidth: 1,
-    borderBottomColor: "#ff9900"
+    borderBottomColor: colors.orange
   },
   grid_image: {
     width: 180,

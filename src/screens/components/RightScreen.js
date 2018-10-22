@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { View, Text, StyleSheet } from "react-native"
 
 import Icon from "react-native-vector-icons/FontAwesome5"
+
+import { customColors as colors } from "../../assets/colors"
 class RightScreen extends Component {
   render() {
     const { container } = styles
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: "#FF9900"
+    backgroundColor: colors.orange
   }
 })
 

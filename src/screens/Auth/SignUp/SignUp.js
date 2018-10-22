@@ -1,11 +1,13 @@
 import React, { Component } from "react"
 import { View, Text, Button, StyleSheet } from "react-native"
 
+import { customColors as colors } from "../../../assets/colors"
+
 class SignUp extends Component {
   static navigatorStyle = {
-    navBarBackgroundColor: "#00364A",
-    statusBarColor: "#00364A",
-    navBarButtonColor: "#00FDB3"
+    navBarBackgroundColor: colors.dark,
+    statusBarColor: colors.dark,
+    navBarButtonColor: colors.green
   }
   render() {
     const { container } = styles
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#00364A"
+    backgroundColor: colors.dark
   }
 })
 

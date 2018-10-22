@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Platform } from "react-native"
 import { Navigation } from "react-native-navigation"
+import { customColors as colors } from "../assets/colors"
 
 import registerScreens from "./registerScreens"
 
@@ -16,8 +17,8 @@ Navigation.startSingleScreenApp({
     animationTypes: "slide-down",
     navigatorStyle: {
       navBarTranslucent: true,
-      navBarBackgroundColor: "#00364A",
-      statusBarColor: "#00364A",
+      navBarBackgroundColor: colors.dark,
+      statusBarColor: colors.dark,
       navBarTextColor: "#fff", // change the text color of the title (remembered across pushes)
       navBarTextFontSize: 18, // change the font size of the title
       // navBarTextFontFamily: "Fira Code", // xcode does not see any font
@@ -26,7 +27,7 @@ Navigation.startSingleScreenApp({
       statusBarTextColorScheme: "light", // text color of status bar, 'dark' / 'light' (remembered across pushes)
       navBarSubtitleColor: "#ddd", // subtitle color
       navBarSubtitleFontSize: 30, // subtitle font size
-      orientation: "portrait", // Sets a specific orientation to a modal and all screens pushed to it. Default: 'auto'. Supported values: 'auto', 'landscape', 'portrait'
+      orientation: "auto", // Sets a specific orientation to a modal and all screens pushed to it. Default: 'auto'. Supported values: 'auto', 'landscape', 'portrait'
       navBarHeight: 20, // android  will show
       navBarHidden: true,
       navBarNoBorder: true,

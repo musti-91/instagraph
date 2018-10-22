@@ -52,24 +52,30 @@ class Home extends Component {
     } = styles
     let { circle_A, circle_B, circle_C } = this.state
     return (
-      <SafeAreaView style={ container }>
-        <TouchableHighlight onPress={ () => this._startTabs() } style={ circle }>
-          <Animated.View style={ { opacity: circle_A } }>
-            <Icon name="angrycreative" size={ 50 } color="#00364A" />
-            <Text style={ circle_text }>HOME</Text>
+      <SafeAreaView style={container}>
+        <TouchableHighlight onPress={() => this._startTabs()} style={circle}>
+          <Animated.View style={{ opacity: circle_A }}>
+            <Icon name="angrycreative" size={50} color="#00364A" />
+            <Text style={circle_text}>HOME</Text>
           </Animated.View>
         </TouchableHighlight>
-        <View style={ { flexDirection: "row" } }>
-          <TouchableHighlight onPress={ this.navigate("SignUp") } style={ [circle, { width: 150, height: 150, top: 500, left: 50 }] } >
-            <Animated.View style={ { opacity: circle_B } }>
-              <Icon name="plus" size={ 30 } color="#00364A" />
-              <Text style={ [circle_text] }>Sign up</Text>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableHighlight
+            onPress={this.navigate("SignUp")}
+            style={[circle, { width: 150, height: 150, top: 500, left: 50 }]}
+          >
+            <Animated.View style={{ opacity: circle_B }}>
+              <Icon name="plus" size={30} color="#00364A" />
+              <Text style={[circle_text]}>Sign up</Text>
             </Animated.View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={ this.navigate("SignIn") } style={ [circle, circle_small] } >
-            <Animated.View style={ { opacity: circle_C } }>
-              <Icon name="registered" size={ 20 } color="#00364A" />
-              <Text style={ [circle_text, circle_small_text] }>Sign in</Text>
+          <TouchableHighlight
+            onPress={this.navigate("SignIn")}
+            style={[circle, circle_small]}
+          >
+            <Animated.View style={{ opacity: circle_C }}>
+              <Icon name="registered" size={20} color="#00364A" />
+              <Text style={[circle_text, circle_small_text]}>Sign in</Text>
             </Animated.View>
           </TouchableHighlight>
         </View>
@@ -96,6 +102,8 @@ class Home extends Component {
     startTabs()
   }
 }
+//TODO: change the view for icons for every circle
+// TODO: supoort portrait en other modes
 
 Home.propTypes = {
   launchApp: PropTypes.bool,
