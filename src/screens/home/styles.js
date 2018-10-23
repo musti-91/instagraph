@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native"
 import { customColors as colors } from "../../assets/colors"
+import { fonts } from "../../assets/fonts/fonts"
 
 export const styles = StyleSheet.create({
   container: {
@@ -24,7 +25,8 @@ export const styles = StyleSheet.create({
   circle_text: {
     marginLeft: 20,
     fontSize: 20,
-    color: colors.dark
+    color: colors.dark,
+    fontFamily: fonts.general
   },
   circle_small: {
     width: 110,

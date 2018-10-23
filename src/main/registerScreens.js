@@ -10,7 +10,7 @@ import Activity from "../screens/activity/Activity"
 import RightScreen from "../screens/components/RightScreen"
 import LeftScreen from "../screens/components/LeftScreen"
 import Search from "../screens/search/Search"
-import Camera from "../screens/camera/Camera"
+import Capture from "../screens/capture/Capture"
 
 // redux
 import { Provider } from "react-redux"
@@ -48,7 +48,7 @@ const registerScreens = () => {
 
   Navigation.registerComponent("Search", () => Search, store, Provider)
 
-  Navigation.registerComponent("Camera", () => Camera, store, Provider)
+  Navigation.registerComponent("Capture", () => Capture, store, Provider)
 
   // Components
 }

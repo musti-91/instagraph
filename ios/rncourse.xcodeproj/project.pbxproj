@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -57,6 +56,7 @@
 		F2CE3ACF4D1D4F2C97F6E495 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DA918781A7E4962AA7584AE /* Feather.ttf */; };
 		F71CFE52ECED454E99605C76 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8A613D804F4557925C9831 /* AntDesign.ttf */; };
 		FB41AF88574A45F8A2C26FBA /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64D48F7C3AF843FAB7FBF19D /* Entypo.ttf */; };
+		A69EDE21C25D40E7B86BC5CD /* Azonix.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D33950149A74EB79573C4DC /* Azonix.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,6 +410,7 @@
 		CFDD2E0C68BB45A0B3A6EFED /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		D3348D1796324A1C8B878E5E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		EE4450FB113B46FDA53F72CE /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		8D33950149A74EB79573C4DC /* Azonix.otf */ = {isa = PBXFileReference; name = "Azonix.otf"; path = "../src/assets/fonts/Azonix.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -722,6 +723,7 @@
 				22CB9D18436942D2AA201F23 /* Octicons.ttf */,
 				CFDD2E0C68BB45A0B3A6EFED /* SimpleLineIcons.ttf */,
 				4F005615D044470495A143C5 /* Zocial.ttf */,
+				8D33950149A74EB79573C4DC /* Azonix.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1239,6 +1241,7 @@
 				8B9171E6928949E49195033F /* Octicons.ttf in Resources */,
 				AB7D100B8BDA4B1B99396B2A /* SimpleLineIcons.ttf in Resources */,
 				A333AA4626B9479B9DD7C772 /* Zocial.ttf in Resources */,
+				A69EDE21C25D40E7B86BC5CD /* Azonix.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

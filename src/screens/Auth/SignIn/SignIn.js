@@ -43,17 +43,17 @@ class SignIn extends Component {
     const { container } = styles
     return (
       <ImageBackground
-        style={container}
+        style={ container }
         resizeMode="cover"
-        source={images.background}
+        source={ images.background }
       >
         <ScrollView>
           <Image
-            source={images.logo}
+            source={ images.logo }
             resizeMethod="auto"
             resizeMode="contain"
           />
-          <Form onFormSubmit={this.onFormSubmit} />
+          <Form onFormSubmit={ this.onFormSubmit } />
         </ScrollView>
       </ImageBackground>
     )
@@ -72,7 +72,4 @@ const styles = StyleSheet.create({
 })
 
 // ************ render diffrent styles depends in system *************
-export default connect(
-  null,
-  null
-)(SignIn)
+export default SignIn

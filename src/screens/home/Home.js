@@ -55,7 +55,7 @@ class Home extends Component {
       <SafeAreaView style={container}>
         <TouchableHighlight onPress={() => this._startTabs()} style={circle}>
           <Animated.View style={{ opacity: circle_A }}>
-            <Icon name="angrycreative" size={50} color="#00364A" />
+            <Icon name="home" size={40} color="#00364A" />
             <Text style={circle_text}>HOME</Text>
           </Animated.View>
         </TouchableHighlight>
@@ -102,8 +102,6 @@ class Home extends Component {
     startTabs()
   }
 }
-//TODO: change the view for icons for every circle
-// TODO: supoort portrait en other modes
 
 Home.propTypes = {
   launchApp: PropTypes.bool,
