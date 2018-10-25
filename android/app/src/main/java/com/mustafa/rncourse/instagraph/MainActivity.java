@@ -1,4 +1,4 @@
-package com.rncourse;
+package com.mustafa.rncourse.instagraph;
 
 import android.os.Bundle; // splach screen
 // react-native-splash-screen >= 0.3.1

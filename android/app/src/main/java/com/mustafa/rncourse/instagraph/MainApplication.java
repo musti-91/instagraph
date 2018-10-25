@@ -1,4 +1,4 @@
-package com.rncourse;
+package com.mustafa.rncourse.instagraph;
 
 import com.facebook.react.ReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
