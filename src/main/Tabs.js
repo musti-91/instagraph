@@ -14,6 +14,15 @@ export const startTabs = () => {
     Navigation.startTabBasedApp({
       tabs: [
         {
+          label: "Activity",
+          screen: "Activity",
+          icon: sources[2],
+          navigatorStyle: {
+            statusBarHidden: true,
+            navBarHidden: true
+          }
+        },
+        {
           label: "Search",
           screen: "Search",
           title: "Search",
@@ -23,15 +32,6 @@ export const startTabs = () => {
             navBarHidden: true
           },
           navigatorButtons: {}
-        },
-        {
-          label: "Activity",
-          screen: "Activity",
-          icon: sources[2],
-          navigatorStyle: {
-            statusBarHidden: true,
-            navBarHidden: true
-          }
         },
         {
           label: "Notification",
