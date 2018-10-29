@@ -9,7 +9,9 @@ export const startTabs = () => {
     Icon.getImageSource("flag", 20),
     Icon.getImageSource("chart-line", 20),
     Icon.getImageSource("search", 20),
-    Icon.getImageSource("camera", 20)
+    Icon.getImageSource("camera", 20),
+    Icon.getImageSource("user-md", 30, colors.orange),
+    Icon.getImageSource("ellipsis-v", 30, colors.orange)
   ]).then(sources => {
     Navigation.startTabBasedApp({
       tabs: [
@@ -19,7 +21,25 @@ export const startTabs = () => {
           icon: sources[2],
           navigatorStyle: {
             statusBarHidden: true,
-            navBarHidden: true
+            navBarBackgroundColor: colors.dark
+          },
+          navigatorButtons: {
+            leftButtons: [
+              {
+                title: "Profile",
+                id: "profile",
+                icon: sources[5],
+                buttonFontSize: 30,
+                disableIconTint: true // should be added to change icon color
+              }
+            ],
+            rightButtons: [
+              {
+                id: "menu",
+                icon: sources[6],
+                disableIconTint: true
+              }
+            ]
           }
         },
         {
@@ -76,13 +96,13 @@ export const startTabs = () => {
           // optional, define if you want a drawer from the left
           screen: "LeftScreen", // unique ID registered with Navigation.registerScreen
           passProps: {}, // simple serializable object that will pass as props to all top screens (optional),
-          fixedWidth: 400 // a fixed width you want your left drawer to have (optional)
+          fixedWidth: 200 // a fixed width you want your left drawer to have (optional)
         },
         right: {
           // optional, define if you want a drawer from the right
           screen: "RightScreen", // unique ID registered with Navigation.registerScreen
           passProps: {}, // simple serializable object that will pass as props to all top screens (optional)
-          fixedWidth: 400 // a fixed width you want your right drawer to have (optional)
+          fixedWidth: 200 // a fixed width you want your right drawer to have (optional)
         },
         style: {
           // ( iOS only )
