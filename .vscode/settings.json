@@ -1,0 +1,9 @@
+{
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.enable": false,
+  "editor.formatOnSave": true,
+  "flow.enabled": false,
+  "java.configuration.updateBuildConfiguration": "automatic",
+}
