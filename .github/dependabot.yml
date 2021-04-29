@@ -1,0 +1,47 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-native-rename
+    versions:
+    - 2.7.0
+    - 2.8.0
+  - dependency-name: react-native-navigation
+    versions:
+    - 7.10.0
+    - 7.11.0
+    - 7.11.1
+    - 7.11.2
+    - 7.11.3
+    - 7.12.0
+    - 7.8.4
+    - 7.9.0
+  - dependency-name: "@babel/runtime"
+    versions:
+    - 7.12.13
+    - 7.12.18
+    - 7.12.5
+    - 7.13.10
+    - 7.13.2
+    - 7.13.6
+    - 7.13.7
+    - 7.13.8
+    - 7.13.9
+  - dependency-name: three
+    versions:
+    - 0.125.1
+    - 0.125.2
+    - 0.126.0
+  - dependency-name: react-native-vector-icons
+    versions:
+    - 8.0.0
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: handlebars
+    versions:
+    - 4.7.6
